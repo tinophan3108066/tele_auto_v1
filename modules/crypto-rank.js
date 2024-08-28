@@ -17,6 +17,7 @@ async function getTimeFarmStart(username, token) {
     });
 
     const data = await response.json();
+
     innerLog("crypto-rank", username, data.balance);
     writeLog({
       project: "Crypto-rank",
@@ -41,6 +42,9 @@ async function getTimeFarmStart(username, token) {
       data?.farming?.timestamp + 60 * 60 * 6 * 1000
     );
   } catch (error) {
+
+    console.log('error _____',error);
+    
     writeLog({
       project: "Crypto-rank",
       username,

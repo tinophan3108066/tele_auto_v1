@@ -245,12 +245,12 @@ class PokeyQuest {
     async upgradeCard(token, cardId) {
         const url = 'https://api.pokey.quest/pokedex/upgrade';
         const payload = { card_id: cardId };
-
         try {
             const response = await axios.post(url, payload, {
                 headers: this.headers(token),
                 timeout: 5000
             });
+
             return response.data;
         } catch (error) {
             this.log(`Error: ${error.message}`);
@@ -273,7 +273,7 @@ class PokeyQuest {
                         balance -= card.amount_gold;
                         friend -= card.amount_friend;
                     } else {
-                        this.log(`Nâng cấp không thành công thẻ ${card.name}: ${upgradeResponse ? upgradeResponse.error_code : 'No response data'}`.red);
+                        this.log(`Nâng cấp không thành công !`.red);
                     }
                 }
             }
@@ -387,7 +387,7 @@ class PokeyQuest {
                     
                         if (tapResponse && tapResponse.error_code === 'OK') {
                             syncData = tapResponse.data;
-                            await this.Countdown(0.05)
+                            await this.Countdown(0.1)
                             this.log(`Năng lượng sau khi tap: ${syncData.available_taps.toString().white}`.green);
                             this.log(`Balance sau khi tap: ${Math.floor(syncData.balance_coins.find(coin => coin.currency_symbol === 'GOL').balance)}`.cyan);
                     
