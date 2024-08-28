@@ -1,0 +1,1 @@
+query_id=AAGCC7s1AwAAAIILuzVp0Hhh&user=%7B%22id%22%3A7343901570%2C%22first_name%22%3A%22Ha%22%2C%22last_name%22%3A%22LinhNeee%22%2C%22username%22%3A%22thanosv4%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1724844871&hash=0ed25581aacbc86201559c792f5e9fb006b4ddd78e4069e70f48f81450bfda4a

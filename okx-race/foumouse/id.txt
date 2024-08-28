@@ -1,0 +1,1 @@
+query_id=AAFfk_0mAwAAAF-T_SY0SbZ_&user=%7B%22id%22%3A7096603487%2C%22first_name%22%3A%22DxMCC%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22DxMCCC9x%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1724844892&hash=2d55c5f4c9869b59cd2ea6ce34a77355df6500f13848881cfffc20b15a6a1428
