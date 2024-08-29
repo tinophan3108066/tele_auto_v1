@@ -208,8 +208,6 @@ class GameBot {
   async getTasks() {
     try {
       const response = await axios.get('https://game-domain.blum.codes/api/v1/tasks', { headers: await this.headers(this.token) });
-      console.log('response ___task_______',response);
-      
       if (response.status === 200) {
         return response.data;
       } else {
@@ -320,10 +318,6 @@ class GameBot {
 
         if (hoinhiemvu) {
           const taskListResponse = await this.getTasks();
-
-          console.log('taskListResponse ____',taskListResponse);
-          
-
           if (taskListResponse && Array.isArray(taskListResponse) && taskListResponse.length > 0) {
             let allTasks = taskListResponse.flatMap(section => section.tasks || []);
             this.log('Đã lấy danh sách nhiệm vụ', 'success');

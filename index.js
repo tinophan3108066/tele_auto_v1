@@ -234,10 +234,6 @@ async function getStatus(projectName, nameInput) {
         state.set(STRING.dailyDormint + username, true);
       }
       const res = await dormintAPI(api.status, token, username);
-
-      console.log('res ___',res);
-      console.log('token ___',token);
-
       
       if (res.status !== "ok") {
         console.log('dormint auth error', username)
