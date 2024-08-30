@@ -134,7 +134,7 @@ async function getTimeToClaim(data) {
       String(formatPoint(res.points || 0)),
     );
 
-    if (res?.status !== 200) {
+    if (!res?.nextFarmClaimAt) {
       innerLog('nomis', res?.error?.message);
       return;
     }
