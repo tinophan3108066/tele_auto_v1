@@ -268,7 +268,11 @@ async function getStatus(projectName, nameInput) {
       break;
     }
     case "nomis": {
-      await checkAuthNomis(data);
+      const isAuth = await checkAuthNomis(data);
+      if(!isAuth){
+        innerLog("nomis", `Auth ${username} error !`);
+        return
+      }
       const timeClaim = await getTimeToClaim(data);
       if (timeClaim) {
         const minuteHasFarm = getTimeDifference(new Date(timeClaim).getTime());
