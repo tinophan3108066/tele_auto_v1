@@ -223,7 +223,8 @@ async function getStatus(projectName, nameInput) {
     }
     case "matchain": {
       const isClaimQuest = state.get(STRING.dailyMatch);
-      await loginMatchain(data, isClaimQuest);
+      const isAuth = await loginMatchain(data, isClaimQuest);
+      if(!isAuth) return
       break;
     }
     case "dormint": {

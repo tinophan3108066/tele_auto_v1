@@ -28,7 +28,7 @@ class Tomarket {
 
     this.interval = 3;
     this.playGame = true;
-    this.gameLowPoint = 300;
+    this.gameLowPoint = 400;
     this.gameHighPoint = 450;
   }
 

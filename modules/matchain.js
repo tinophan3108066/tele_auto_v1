@@ -1,5 +1,5 @@
 const { delay, setTime, innerLog, writeLog } = require("./core");
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const headers = {
   Referer: "https://tgapp.matchain.io/",
   Origin: "https://tgapp.matchain.io",
@@ -18,6 +18,7 @@ const token = new Map();
 
 async function loginMatchain(data, state) {
   const domain = "https://tgapp-api.matchain.io/api/tgapp/v1/user/login";
+
   try {
     const res = await fetch(domain, {
       method: "POST",
@@ -26,15 +27,22 @@ async function loginMatchain(data, state) {
     });
 
     const d = await res.json();
+    
+
+    
     writeLog({
       project: "matchain",
       username: data.username || data.nickname,
       domain: domain,
       data: d,
     });
+    if(d.code !== 200){
+      return
+    }
     if (d.code === 200 && d.data.token) {
       token.set(data.username, d.data.token);
     }
+
 
     await checkStatus(data.uid, data.username || data.nickname, state);
   } catch (e) {
@@ -44,7 +52,7 @@ async function loginMatchain(data, state) {
       domain: domain,
       data: e,
     });
-    console.log(e);
+    console.log('ERROR ____________',e);
   }
 }
 
