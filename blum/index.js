@@ -47,7 +47,7 @@ class GameBot {
   }
 
   async getNewToken() {
-    const url = 'https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP';
+    const url = 'https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP';
     const data = JSON.stringify({ query: this.queryId });
 
     for (let attempt = 1; attempt <= 3; attempt++) {
@@ -72,7 +72,7 @@ class GameBot {
 
   async getUserInfo() {
     try {
-      const response = await axios.get('https://gateway.blum.codes/v1/user/me', { headers: await this.headers(this.token) });
+      const response = await axios.get('https://user-domain.blum.codes/api/v1/user/me', { headers: await this.headers(this.token) });
       if (response.status === 200) {
         this.userInfo = response.data;
         return this.userInfo;
